@@ -4,7 +4,11 @@
   "description": "```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "npx hardhat clean",
+    "chain": "npx hardhat node",
+    "deploy": "npx hardhat run --network localhost scripts/deploy.ts",
+    "deploy:baobab": "npx hardhat run --network baobab scripts/deploy.ts",
+    "test": "npx hardhat test"
   },
   "repository": {
     "type": "git",
