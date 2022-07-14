@@ -8,7 +8,7 @@ describe('KIP37Collectible', () => {
     const tokenId = 1;
     const initialSupply = 10;
     it('create시 onwer는 initialSupply만큼 가지고 있어야 한다', async () => {
-      const {contract: sut, tokenURI, owner} = await loadFixture(kip37CollectibleFixture);
+      const {k37Contract: sut, tokenURI, owner} = await loadFixture(kip37CollectibleFixture);
       const tx = await sut.create(tokenId, initialSupply, tokenURI);
       await tx.wait();
 
@@ -17,7 +17,7 @@ describe('KIP37Collectible', () => {
     });
 
     it('이미 존재하는 tokenId로 create 호출 불가', async () => {
-      const {contract: sut, tokenURI, owner} = await loadFixture(kip37CollectibleFixture);
+      const {k37Contract: sut, tokenURI, owner} = await loadFixture(kip37CollectibleFixture);
       const tx = await sut.create(tokenId, initialSupply, tokenURI);
       await tx.wait();
       await expect(sut.create(tokenId, initialSupply, tokenURI)).to.be.revertedWith('KIP37: token already created');
@@ -29,12 +29,12 @@ describe('KIP37Collectible', () => {
     const initialSupply = 10;
     const mintSupply = 3;
     it('create하지 않고 mint를 하면 에러 발생', async () => {
-      const {contract: sut, tokenURI, noah} = await loadFixture(kip37CollectibleFixture);
+      const {k37Contract: sut, tokenURI, noah} = await loadFixture(kip37CollectibleFixture);
       expect(sut.mintItem(tokenId, noah.address, mintSupply)).to.be.revertedWith('KIP37: nonexistent token');
     });
 
     it('mint시 mint주소에 mint한 수량만큼 소유하고 있어야 한다.', async () => {
-      const {contract: sut, tokenURI, noah} = await loadFixture(kip37CollectibleFixture);
+      const {k37Contract: sut, tokenURI, noah} = await loadFixture(kip37CollectibleFixture);
       let tx = await sut.create(tokenId, initialSupply, tokenURI);
       await tx.wait();
 
