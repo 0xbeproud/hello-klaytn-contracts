@@ -4,6 +4,7 @@ import "@nomicfoundation/hardhat-toolbox";
 import "@nomiclabs/hardhat-solhint"
 import '@nomiclabs/hardhat-ethers'
 import '@nomiclabs/hardhat-waffle'
+require('dotenv').config();
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -15,8 +16,41 @@ task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
   }
 });
 
+const PRIVATE_KEY = `${process.env.PRIVATE_KEY}`;
 const config: HardhatUserConfig = {
-  solidity: "0.8.9",
+  solidity: {
+    version: '0.8.9',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
+  defaultNetwork: 'baobab',
+  networks: {
+    localhost: {
+      url: 'http://127.0.0.1:8545',
+      loggingEnabled: true,
+    },
+    baobab: {
+      url: 'https://kaikas.baobab.klaytn.net:8651/',
+      // url: "https://public-en.fanto.io/v1/baobab",
+      accounts: [PRIVATE_KEY],
+      gas: 6000000,
+      gasPrice: 0x3a35294400,
+      loggingEnabled: true,
+    },
+  },
+  paths: {
+    sources: './contracts',
+    tests: './test',
+    cache: './cache',
+    artifacts: './artifacts',
+  },
+  mocha: {
+    timeout: 40000,
+  },
 };
 
 export default config;
