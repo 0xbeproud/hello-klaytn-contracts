@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "contracts/**/*"
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 14, 16 ]
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/checkout@v2
+      - name: Install
+        run: yarn --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Run tests
+        run: yarn test
