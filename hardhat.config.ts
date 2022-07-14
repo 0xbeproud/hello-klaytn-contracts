@@ -1,9 +1,11 @@
-import {HardhatUserConfig, task} from "hardhat/config";
-import '@typechain/hardhat'
-import "@nomicfoundation/hardhat-toolbox";
-import "@nomiclabs/hardhat-solhint"
-import '@nomiclabs/hardhat-ethers'
-import '@nomiclabs/hardhat-waffle'
+import {HardhatUserConfig, task} from 'hardhat/config';
+import '@typechain/hardhat';
+import '@nomicfoundation/hardhat-toolbox';
+import '@nomiclabs/hardhat-solhint';
+import '@nomiclabs/hardhat-ethers';
+import '@nomiclabs/hardhat-waffle';
+import '@nomicfoundation/hardhat-chai-matchers';
+
 require('dotenv').config();
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -27,13 +29,13 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: 'baobab',
   networks: {
     localhost: {
       url: 'http://127.0.0.1:8545',
       loggingEnabled: true,
     },
     baobab: {
+      chainId: 1001,
       url: 'https://kaikas.baobab.klaytn.net:8651/',
       // url: "https://public-en.fanto.io/v1/baobab",
       accounts: [PRIVATE_KEY],
