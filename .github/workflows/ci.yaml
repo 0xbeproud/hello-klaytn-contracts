@@ -17,7 +17,12 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - uses: actions/checkout@v2
+
       - name: Install
         run: yarn --frozen-lockfile
+
+      - name: Compile
+        run: yarn compile
+
       - name: Run tests
         run: yarn test
