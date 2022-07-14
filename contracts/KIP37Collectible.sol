@@ -1,7 +1,6 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
 import "@klaytn/contracts/access/Ownable.sol";
 import "@klaytn/contracts/KIP/token/KIP37/extensions/KIP37Mintable.sol";
 import "@klaytn/contracts/KIP/token/KIP37/extensions/KIP37Burnable.sol";
@@ -26,7 +25,6 @@ contract KIP37Collectible is KIP37Mintable, Ownable {
         _setupRole(MINTER_ROLE, _msgSender());
         //        _setupRole(PAUSER_ROLE, _msgSender());
     }
-
 
     function mintItem(
         uint256 id,

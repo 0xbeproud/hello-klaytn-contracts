@@ -3,8 +3,8 @@
 https://dev.to/stermi/how-to-deploy-your-first-smart-contract-on-ethereum-with-solidity-and-hardhat-5efc
 
 ```bash
-npm init -y 
-yarn add --dev hardhat  
+npm init -y
+yarn add --dev hardhat
 npx hardhat
 
 👷 Welcome to Hardhat v2.10.1 👷‍

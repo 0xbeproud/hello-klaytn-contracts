@@ -1,7 +1,6 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-
 import "@klaytn/contracts/access/Ownable.sol";
 import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
 import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17MetadataMintable.sol";
@@ -27,7 +26,14 @@ contract KIP17Collectible is KIP17MetadataMintable, Ownable {
     uint256 public MAX_SUPPLY;
     uint256 public MAX_PER_MINT;
 
-    constructor(string memory name_, string memory symbol_, string memory tokenURI_, uint256 price_, uint256 maxSupply_, uint256 maxPerMint_) KIP17(name_, symbol_) {
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        string memory tokenURI_,
+        uint256 price_,
+        uint256 maxSupply_,
+        uint256 maxPerMint_
+    ) KIP17(name_, symbol_) {
         TOKEN_URI = tokenURI_;
         PRICE = price_;
         MAX_SUPPLY = maxSupply_;
@@ -37,14 +43,14 @@ contract KIP17Collectible is KIP17MetadataMintable, Ownable {
         _setupRole(MINTER_ROLE, _msgSender());
     }
 
-    function mintNFTs(uint _count) public payable {
-        uint totalMinted = _tokenIds.current();
+    function mintNFTs(uint256 _count) public payable {
+        uint256 totalMinted = _tokenIds.current();
 
         require(totalMinted.add(_count) <= MAX_SUPPLY, "Not enough NFTs left!");
         require(0 < _count && _count <= MAX_PER_MINT, "Cannot mint specified number of NFTs.");
         require(msg.value >= PRICE.mul(_count), "Not enough klay to purchase NFTs.");
 
-        for (uint i = 0; i < _count; i++) {
+        for (uint256 i = 0; i < _count; i++) {
             mintNFT(msg.sender);
         }
     }

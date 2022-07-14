@@ -9,7 +9,11 @@
     "node": "npx hardhat node",
     "deploy": "npx hardhat run --network localhost scripts/deploy.ts",
     "deploy:baobab": "npx hardhat run --network baobab scripts/deploy.ts",
-    "test": "npx hardhat test"
+    "test": "npx hardhat test",
+    "hint": "npx solhint contracts/**/*.sol",
+    "hint:fix": "npx solhint 'contracts/**/*.sol' --fix",
+    "prettier:check": "npx prettier '**/*.{json,sol,md}' --check",
+    "prettier:write": "npx prettier '**/*.{json,sol,md}' --write"
   },
   "repository": {
     "type": "git",
