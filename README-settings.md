@@ -40,5 +40,5 @@ typescript
 ```bash
 yarn add --dev solhint solhint-plugin-prettier prettier prettier-plugin-solidity
 yarn add --dev @nomiclabs/hardhat-solhint
-yarn add --dev ethereum-waffle
+yarn add --dev @nomicfoundation/hardhat-chai-matchers 
 ```
