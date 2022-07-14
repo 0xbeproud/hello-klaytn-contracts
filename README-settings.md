@@ -15,30 +15,10 @@ npx hardhat
 ✔ Do you want to install this sample project's dependencies with yarn ('
 
 
-@nomicfoundation/hardhat-toolbox 
-@nomicfoundation/hardhat-network-helpers 
-@nomicfoundation/hardhat-chai-matchers 
-@nomiclabs/hardhat-ethers 
-@nomiclabs/hardhat-etherscan 
-chai 
-ethers 
-hardhat-gas-reporter 
-solidity-coverage 
-@typechain/hardhat 
-typechain 
-@typechain/ethers-v5 
-@ethersproject/abi 
-@ethersproject/providers 
-@types/chai 
-@types/mocha 
-@types/node 
-ts-node 
-typescript
+yarn add --dev @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomiclabs/hardhat-ethers @nomiclabs/hardhat-etherscan chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat typechain @typechain/ethers-v5 @ethersproject/abi @ethersproject/providers @types/chai @types/mocha @types/node ts-node typescript
 ```
-
 
 ```bash
 yarn add --dev solhint solhint-plugin-prettier prettier prettier-plugin-solidity
 yarn add --dev @nomiclabs/hardhat-solhint
-yarn add --dev @nomicfoundation/hardhat-chai-matchers 
 ```

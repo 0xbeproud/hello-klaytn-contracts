@@ -13,6 +13,8 @@ import "@klaytn/contracts/utils/Counters.sol";
 import "@klaytn/contracts/utils/Address.sol";
 import "@klaytn/contracts/utils/Strings.sol";
 
+import "hardhat/console.sol";
+
 contract KIP37Collectible is KIP37Mintable, Ownable {
     using SafeMath for uint256;
     using Counters for Counters.Counter;
